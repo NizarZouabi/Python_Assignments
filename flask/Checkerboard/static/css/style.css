@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h1 {
+    padding: 20px;
+}
+
+table {
+    display: flex;
+    justify-content: center;
+    border: 3px solid black;
+}
+
+.white {
+    padding: 80px;
+    border: 1px solid black;
+}
+
+.black {
+    padding: 80px;
+    border: 1px solid black;
+}

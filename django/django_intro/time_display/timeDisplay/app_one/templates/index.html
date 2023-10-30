@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(210, 255, 240);
+        }
+        .all {
+            display: flex;
+            margin: 50px;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 15px;
+        }
+        #one {
+            color: black;
+            border: 1px solid black;
+            background-color: white;
+            padding: 25px
+        }
+        #two {
+            color: black;
+            background-color: white;
+            border: 1px solid black;
+            padding: 50px
+        }
+    </style>
+</head>
+<body>
+    <div class="all">
+    <div class="">
+        <h4 id="one">The Current Time & Date:</h4>
+    </div>
+    <div class="">
+        <h1 id="two">{{time}}</h1>
+    </div>
+    </div>
+</body>
+</html>
