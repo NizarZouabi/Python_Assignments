@@ -49,10 +49,11 @@ def login():
     data = {"email": request.form['email']}
     user_exists = user.User.get_user_by_email(data)
     if not user_exists:
-        flash("Invalid User Email")
+        flash("Invalid User Email",'error')
         return redirect('/')
+    
     if not bcrypt.check_password_hash(user_exists.password, request.form['password']):
-        flash("Wrong Password")
+        flash("Wrong Password", 'error')
         return redirect('/')
     
     session['user_id'] = user_exists.id

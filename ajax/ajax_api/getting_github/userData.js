@@ -1,5 +1,5 @@
 
-async function gitUserData() {
+function gitUserData() {
     var inputData = document.getElementById('api').value;
     var gitGet = "https://api.github.com/users/" + inputData;
     var showData = document.getElementById('user_data');

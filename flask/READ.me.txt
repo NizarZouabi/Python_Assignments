@@ -1,0 +1,1 @@
+after updating python, you must change the version in the package file & reinstall all venv dependencies
