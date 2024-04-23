@@ -1,0 +1,22 @@
+INSERT INTO dojos (name) VALUES ('Rising Phoenix DOJO');
+INSERT INTO dojos (name) VALUES ('Red Dragonfly DOJO');
+INSERT INTO dojos (name) VALUES ('Black Belt DOJO');
+-- for some reason i can't disable the safe update mode
+DELETE FROM dojos WHERE id = 1;
+DELETE FROM dojos WHERE id = 2;
+DELETE FROM dojos WHERE id = 3;
+INSERT INTO dojos (name) VALUES ('A DOJO');
+INSERT INTO dojos (name) VALUES ('B DOJO');
+INSERT INTO dojos (name) VALUES ('C DOJO');
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ('Ninja','Alpha',16,1);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ('Ninja','Beta',21,1);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ('Ninja','Omega',18,1);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ('Ninja','Gamma',12,2);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ('Ninja','Delta',14,2);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ('Ninja','Zeta',17,2);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ('Ninja','Theta',22,3);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ('Ninja','Sigma',19,3);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ('Ninja','Kappa',13,3);
+SELECT * FROM ninjas WHERE dojo_id = 1;
+SELECT * FROM ninjas WHERE dojo_id = 3;
+SELECT dojo_id FROM ninjas WHERE ninjas.id = 9;

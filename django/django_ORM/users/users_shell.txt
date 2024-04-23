@@ -1,0 +1,29 @@
+Users.objects.create(first_name="Nizar", last_name="Zouabi", email_address="nizar.zouabi@gmail.com", age="22")
+<Users: Users object (1)>
+
+Users.objects.create(first_name="James", last_name="Dunckan", email_address="james.dunckan@gmail.com", age="20")
+<Users: Users object (2)>
+
+Users.objects.create(first_name="Jane", last_name="Doe", email_address="jane.doe@gmail.com", age="18")
+<Users: Users object (3)>
+
+Users.objects.all()
+<QuerySet [<Users: Users object (1)>, <Users: Users object (2)>, <Users: Users object (3)>]>
+
+Users.objects.last()
+<Users: Users object (3)>
+Users.objects.first()
+<Users: Users object (1)>
+
+user = Users.objects.get(id=3)
+user.last_name = "Pancakes"
+user.save()
+
+user = Users.objects.get(id=2)
+user.delete()
+(1, {'users_app.Users': 1})
+
+Users.objects.all().order_by("first_name")
+<QuerySet [<Users: Users object (3)>, <Users: Users object (1)>]>
+Users.objects.all().order_by("-first_name")
+<QuerySet [<Users: Users object (1)>, <Users: Users object (3)>]>
