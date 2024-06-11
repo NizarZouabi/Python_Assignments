@@ -1,0 +1,49 @@
+>>> Dojo.objects.create(name="Coding Dojo", city="New York", state="New York")
+<Dojo: Dojo object (1)>
+>>> Dojo.objects.create(name="Zen Warriors", city="Los Angeles", state="California")
+<Dojo: Dojo object (2)>
+>>> Dojo.objects.create(name="Dragon's Den", city="Houston", state="Texas")
+<Dojo: Dojo object (3)>
+>>> all_dojos = Dojo.objects.all()
+>>> all_dojos.delete()
+(3, {'dojo_ninjas_app.Dojo': 3})
+
+Dojo.objects.create(name="Zen Warriors", city="Los Angeles", state="California")
+<Dojo: Dojo object (4)>
+>>> Dojo.objects.create(name="Coding Dojo", city="New York", state="New York")
+<Dojo: Dojo object (5)>
+>>> Dojo.objects.create(name="Dragon's Den", city="Houston", state="Texas")
+<Dojo: Dojo object (6)>
+
+Ninja.objects.create(first_name="Nizar", last_name="Zouabi", dojo=Dojo.objects.get(id=4))
+<Ninja: Ninja object (1)>
+>>> Ninja.objects.create(first_name="Jill", last_name="Valentine", dojo=Dojo.objects.get(id=4))
+<Ninja: Ninja object (2)>
+>>> Ninja.objects.create(first_name="Mary", last_name="Ann", dojo=Dojo.objects.get(id=4))
+<Ninja: Ninja object (3)>
+
+>>> Ninja.objects.create(first_name="Jin", last_name="Sakai", dojo=Dojo.objects.get(id=5))
+<Ninja: Ninja object (5)>
+>>> Ninja.objects.create(first_name="Risotto", last_name="Nero", dojo=Dojo.objects.get(id=5))
+<Ninja: Risotto>
+>>> Ninja.objects.create(first_name="Hamura", last_name="Shin", dojo=Dojo.objects.get(id=5))
+<Ninja: Hamura>
+
+>>> Ninja.objects.create(first_name="Claire", last_name="Redfield", dojo=Dojo.objects.get(id=6))
+<Ninja: Claire>
+>>> Ninja.objects.create(first_name="Chris", last_name="Redfield", dojo=Dojo.objects.get(id=6))
+<Ninja: Chris>
+>>> Ninja.objects.create(first_name="Ada", last_name="Wong", dojo=Dojo.objects.get(id=6))
+<Ninja: Ada>
+
+>>> this_dojo = Dojo.objects.get(id=4)
+>>> this_dojo.ninjas.all()
+<QuerySet [<Ninja: Nizar>, <Ninja: Jill>, <Ninja: Mary>]>
+>>> this_dojo = Dojo.objects.get(id=6)
+>>> this_dojo.ninjas.all()
+<QuerySet [<Ninja: Claire>, <Ninja: Chris>, <Ninja: Ada>]>
+
+>>> last_ninja = Ninja.objects.last()
+>>> last_ninja.dojo
+<Dojo: Dragon's Den>
+
