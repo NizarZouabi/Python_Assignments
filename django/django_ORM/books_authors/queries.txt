@@ -1,0 +1,71 @@
+>>> Books.objects.create(title="C Sharp")
+<Books: C Sharp>
+>>> Books.objects.create(title="Java")
+<Books: Java>
+>>> Books.objects.create(title="Python")
+<Books: Python>
+>>> Books.objects.create(title="PHP")
+<Books: PHP>
+>>> Books.objects.create(title="Ruby")
+<Books: Ruby>
+
+>>> Authors.objects.create(first_name="Jane",last_name="Austen")
+<Authors: Jane>
+>>> Authors.objects.create(first_name="Emily",last_name="Dickinson")
+<Authors: Emily>
+>>> Authors.objects.create(first_name="William",last_name="Shakespeare")
+<Authors: William>
+>>> Authors.objects.create(first_name="Lau",last_name="Tzu")
+<Authors: Lau>
+>>> Authors.objects.create(first_name="Fyodor",last_name="Dostoevsky")
+<Authors: Fyodor>
+
+>>> c = Books.objects.get(id=1)
+>>> c.title = "C#"
+>>> c.save()
+>>> auth = Authors.objects.get(id=4)
+>>> auth.first_name = "Bill"
+>>> auth.save()
+
+>>> auth = Authors.objects.get(id=4)
+>>> book_one = Books.objects.get(id=1)
+>>> auth.books.add(book_one)
+>>> book_two = Books.objects.get(id=2)
+>>> auth.books.add(book_two)
+
+>>> auth = Authors.objects.get(id=2)
+>>> auth.books.add(book_one)
+>>> auth.books.add(book_two)
+>>> book_three = Books.objects.get(id=3)
+>>> auth.books.add(book_three)
+
+>>> auth = Authors.objects.get(id=3)
+>>> auth.books.add(book_one)
+>>> auth.books.add(book_two)
+>>> auth.books.add(book_three)
+>>> book_four = Books.objects.get(id=4)
+>>> auth.books.add(book_four)
+
+>>> auth = Authors.objects.get(id=1)
+>>> auth.books.add(book_one)
+>>> auth.books.add(book_two)
+>>> auth.books.add(book_three)
+>>> auth.books.add(book_four)
+>>> books_five = Books.objects.get(id=5)
+>>> auth.books.add(book_five)
+
+>>> book_three.authors.all()
+<QuerySet [<Authors: Emily>, <Authors: William>, <Authors: Jane>]>
+
+>>> auth = Authors.objects.get(id=1)
+>>> book_three.authors.remove(auth)
+>>> auth = Authors.objects.get(id=5)
+>>> book_two.authors.add(auth)
+>>> auth = Authors.objects.get(id=3)
+>>> auth.books.all()
+<QuerySet [<Books: C#>, <Books: Java>, <Books: Python>, <Books: PHP>]>
+>>> book_five.authors.all()
+<QuerySet [<Authors: Jane>]>
+
+
+
