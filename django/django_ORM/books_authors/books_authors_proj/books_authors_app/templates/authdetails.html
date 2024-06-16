@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books & Authors</title>
+</head>
+<body>
+    <div class="p-5">
+    <div>
+        <h4>{{auth.first_name}} {{auth.last_name}}</h4>
+        <div class="d-flex flex-row gap-2">
+        <h5>ID:</h5><h6 class="fw-bold lead">{{auth.id}}</h6>
+        </div>
+        <h5>Notes</h5>
+            <p class="border rounded p-3 bg-light">
+                {{auth.notes}}
+            </p>
+        <h5>Books:</h5>
+        {% if auth.books.all|length > 0 %}
+        {% for book in auth.books.all %}
+            <ul>
+                <li>{{book.title}}</li>
+            </ul>
+        {% endfor %}
+        {% else %}
+        <p>None</p>
+        {% endif %}
+    </div>
+    <div class="">
+        <form class="d-flex flex-column form-control gap-2 justify-content-center p-5" method="post" action="/add/author/book/">
+            {% csrf_token %}
+            <input type="hidden" name="author_id" value="{{auth.id}}">
+        <select name="book_id" id="book_id">
+            {% for book in books %}
+            <option value="{{book.id}}">{{book.title}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-success">Add</button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>
